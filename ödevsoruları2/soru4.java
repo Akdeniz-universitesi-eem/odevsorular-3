@@ -1,19 +1,54 @@
-//JOpƟonPane.showMessageDialog(), JOpƟonPane.showInputDialog() yapılarını kullanarak
-//ekrandan girilen iki sayının kullanıcının secimine göre toplama, çarpma, bölme, çıkarma sonucu
-//“JOpƟonPane.showMessageDialog()” gösteren programı yazınız.
+import javax.swing.*;
+import java.util.Iterator;
+import java.util.Scanner;
 
-// JOptionPane kütüphanesi
 import javax.swing.JOptionPane;
+
 
 public class soru4 {
     public static void main(String[] args) {
-        // Kullanıcıdan iki sayı aldım
-        String sayi1 = JOptionPane.showInputDialog(" Sayi1 : ");
-        String sayi2 = JOptionPane.showInputDialog(" Sayi2 : ");
 
-        // Alınan sayıyı bilgilendirme ekranıyla gösteriyoruz.
-        JOptionPane.showMessageDialog(null, sayi1 , "Girilen Sayı", JOptionPane.OK_OPTION);
-    }
-}
+                String sayi1 = JOptionPane.showInputDialog("Birinci Sayıyı Giriniz !");
+                String sayi2 = JOptionPane.showInputDialog("İkinci Sayıyı Giriniz !");
 
+                double num1 = Double.parseDouble(sayi1);
+                double num2 = Double.parseDouble(sayi2);
+                //Aşağıda görülen tip camelCase
+                String[]  operations = {"Toplama","Çıkarma","Çarpma","Bölme"};
+
+                int userChoice = JOptionPane.showOptionDialog(null, "İşlem Seç", "İşlem",
+                        0, 0, null, operations,operations[0]);
+
+                double result = 0;
+
+                switch (userChoice)
+                {
+                    case 0: {
+                        result =num1+num2;
+                    }
+                    case 1: {
+                        result =num1-num2;
+                    }
+                    case 2: {
+                        result =num1*num2;
+                    }
+                    case 3: {
+                        if(num2 != 0)
+                        {
+                            result =num1/num2;
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null,"Tanımsız sayi");
+                            return;
+                        }
+
+                    }
+
+                }
+                System.out.println(result);
+            }
+
+
+        }
 
